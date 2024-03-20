@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS Tester</title>
+</head>
+
+<body>
+    <div class="output1"></div>
+    <input type="text" placeholder="First Name" name="first"><br>
+    <input type="text" placeholder="Last Name" name="last"><br>
+    <script>
+        const output = document.querySelector('.output1');
+        const firstNameInput = document.querySelector("input[name='first']");
+        const lastNameInput = document.querySelector("input[name='last']");
+
+        function handleInputChange() {
+            output.textContent = `${firstNameInput.value} ${lastNameInput.value}`;
+        }
+
+        firstNameInput.addEventListener('change', handleInputChange);
+        lastNameInput.addEventListener('change', handleInputChange);
+
+        function handleFocusBlur(event) {
+            console.log(`Input field ${event.target.name} ${event.type}`);
+        }
+
+        firstNameInput.addEventListener('blur', handleFocusBlur);
+        firstNameInput.addEventListener('focus', handleFocusBlur);
+        lastNameInput.addEventListener('blur', handleFocusBlur);
+        lastNameInput.addEventListener('focus', handleFocusBlur);
+    </script>
+</body>
+
+</html>

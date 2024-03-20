@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Tester</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 100px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box" id="box0">Box #1</div>
+    <div class="box" id="box1">Box #2</div>
+    <div class="box" id="box2">Box #3</div>
+    <div class="box" id="box3">Box #4</div>
+  </div>
+  <script>
+    const boxes = document.querySelectorAll('.box');
+    const container = document.querySelector('.container');
+
+    container.addEventListener('click', (event) => {
+      console.log('Container clicked (useCapture=false)');
+      console.log('Event target textContent:', event.target.textContent);
+    });
+
+    container.addEventListener('click', (event) => {
+      console.log('Container clicked (useCapture=true)');
+      console.log('Event target textContent:', event.target.textContent);
+    }, true);
+
+    boxes.forEach((box, index) => {
+      box.addEventListener('click', (event) => {
+        console.log(`Box ${index + 1} clicked (useCapture=false)`);
+        console.log('Event target textContent:', event.target.textContent);
+        event.stopPropagation();
+      });
+    });
+
+    boxes.forEach((box, index) => {
+      box.addEventListener('click', (event) => {
+        console.log(`Box ${index + 1} clicked (useCapture=true)`);
+        console.log('Event target textContent:', event.target.textContent);
+        event.stopPropagation();
+      }, true);
+    });
+  </script>
+</body>
+</html>
+

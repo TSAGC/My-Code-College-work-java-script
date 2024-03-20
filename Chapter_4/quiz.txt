@@ -1,0 +1,13 @@
+The output will be "one". 
+The output will be "this is the one". 
+The output will be "login".
+The output will be "Welcome, that is a user: John".
+The output will be "Wake up, it's morning". Since myTime is 9
+The output will be:
+                    false because neither a is greater than b nor b is greater than a.
+                    false because a is not greater than b and b is not greater than a.
+                    true because d is greater than b.
+                    false because d is greater than b, but b is not greater than a.
+The output will be:
+                "100 was LESS or Equal to 100"
+                "100 is Even"

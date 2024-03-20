@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let milesToKilometers = 130/209.2142;
+        console.log(milesToKilometers * 209.2142);
+        let miles = prompt(`please enter the amount of miles you want to convert to kilomerers`);
+        let kilometers = milesToKilometers * parseInt(miles) ;
+        alert(` the result is ${kilometers} kilometers `);
+
+        //BMI calculator
+        let inchToCm = 2.54 ;
+        let poundsToKilo = 1/2.2046;
+
+       let inch = prompt(`please enter amount of inch you want to convert`);
+       let pounds =  prompt(`please enter the amount of pounds you want to convert`);
+
+        let cm = parseInt(inch) * inchToCm ;
+        let kilos = parseInt(pounds) * poundsToKilo ;
+
+        console.log(`inch to cm = ${cm}`);
+        console.log(`pounds to kilos = ${kilos}`);
+    </script>
+</body>
+</html>

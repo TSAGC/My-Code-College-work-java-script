@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 style="color: darkseagreen;">Just an example</h1>
+    <div id="one" class="example">Hi!</div>
+    <div id="two" class="example">Hi!</div>
+    <div id="three" class="something">Hi!</div>
+
+    <script>
+        console.log(document.getElementById("two"));
+        console.log(document.getElementById('one').innerHTML = "test 1");
+        console.log(document.getElementById('two').appendChild(document.createElement("p")));
+    </script>
+</body>
+
+</html>

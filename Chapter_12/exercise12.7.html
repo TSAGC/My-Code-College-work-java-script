@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Storage Shopping List</title>
+    <style>
+        .ready {
+            background-color: #ddd;
+            color: red;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <input id="newItemInput" placeholder="New Item" value="test item" maxlength="30">
+        <button id="addButton">Add</button>
+    </div>
+    <ul id="output" class="output">
+    </ul>
+    <script>
+        const main = document.querySelector(".main");
+        const newItemInput = document.getElementById("newItemInput");
+        const addButton = document.getElementById("addButton");
+        const output = document.getElementById("output");
+
+        let tasks = JSON.parse(localStorage.getItem("tasklist")) || [];
+
+        function buildTask(task) {
+            const li = document.createElement("li");
+            const textNode = document.createTextNode(task.name);
+            li.appendChild(textNode);
+            output.appendChild(li);
+            if (task.checked) {
+                li.classList.add("ready");
+            }
+            li.addEventListener("click", function () {
+                task.checked = !task.checked;
+                buildTasks();
+                saveTasks();
+            });
+        }
+
+        function buildTasks() {
+            output.innerHTML = "";
+            tasks.forEach(task => {
+                buildTask(task);
+            });
+        }
+
+        function saveTasks() {
+            localStorage.setItem("tasklist", JSON.stringify(tasks));
+        }
+
+        buildTasks();
+
+        addButton.addEventListener("click", function () {
+            const newItem = newItemInput.value;
+            if (newItem.trim() !== "") {
+                tasks.push({ name: newItem, checked: false });
+                buildTasks();
+                saveTasks();
+                newItemInput.value = "";
+            }
+        });
+
+    </script>
+</body>
+</html>

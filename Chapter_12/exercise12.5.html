@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practice Exercise 12.5</title>
+</head>
+<body>
+    <script>
+        function checkNumber(val) {
+            try {
+                if (isNaN(val)) {
+                    throw new Error("Value is not a number");
+                } else {
+                    console.log("Got a number");
+                }
+            } catch (error) {
+                console.error(error.message);
+            } finally {
+                console.log("Completed with value:", val);
+            }
+        }
+
+        checkNumber("abc");
+
+        checkNumber(123);
+    </script>
+</body>
+</html>

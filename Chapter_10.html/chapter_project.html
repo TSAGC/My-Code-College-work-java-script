@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>JS Tester</title>
+    <style>
+        .active {
+            display: block !important;
+        }
+
+
+        .myText {
+            display: none;
+        }
+
+
+        .title {
+            font-size: 1.5em;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Title #1</div>
+        <div class="myText">Just some text #1</div>
+        <div class="title">Title #2</div>
+        <div class="myText">Just some text #2</div>
+        <div class="title">Title #3</div>
+        <div class="myText">Just some text #3</div>
+    </div>
+    <script>
+        let var1 = document.querySelectorAll('.title');
+        let var2 = document.querySelectorAll('.myText');
+
+        var1.forEach((title, index) => {
+
+            title.addEventListener('click', () => {
+                var2.forEach((text , idx) => {
+                    if (idx != index) {
+                        text.classList.remove('active');
+                    }
+                });
+                var2[index].classList.toggle('active');
+            });
+        });
+    </script> 
+
+
+        <div id="message">Complete JavaScript Course</div>
+        <div>
+            <input type="text" id="addFriend">
+            <input onclick="add()" type="button" id="addNew" value="Add Friend">
+        </div>
+        <table id="output"></table>
+        <script>
+            let myArray = ['Alice', 'Bob', 'Charlie'];
+            let output = document.getElementById('output');
+            let addNew = document.getElementById('addNew');
+            let addNewName = document.getElementById('addFriend');
+            let votesArray = [0, 0, 0];
+
+            function add() {
+                myArray.push(addNewName.value);
+                votesArray.push(0);
+                display();
+            }
+
+           
+
+            function display() {
+                 let maxLength = myArray.length ;
+                let tableHtml = '<table>';
+               // tableHtml += `<tr><td>${}</td><td>${votes}</td><td><button onclick="vote(${i})">Vote</button></td></tr>`;
+                tableHtml += '<tbody>';
+                for (let i = 0; i < maxLength; i++) {
+                    let val1 = i + 1 || '';
+                    let val2 = myArray[i] || '';
+                    let val3 = votesArray[i];
+                    tableHtml += `<tr><td>${val1}</td><td>${val2}</td><td>${val3}</td><td><button onclick="vote(${i})">Vote</button></td></tr>`;
+                }
+                tableHtml += '</tbody></table>';
+
+                output.innerHTML = tableHtml;
+            }
+
+            function vote(index) {
+                votesArray[index]++;
+                display();
+            }
+
+            display();
+
+        </script>
+
+
+
+
+</body>
+
+</html>

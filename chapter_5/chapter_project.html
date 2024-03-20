@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+let multiplicationTable = [];
+const numValues = 10;
+
+for (let i = 1; i <= numValues; i++) {
+    let row = []; 
+    for (let j = 1; j <= numValues; j++) {
+        row.push(i * j);
+    }
+    multiplicationTable.push(row);
+}
+
+console.log("Multilpication Table:");
+for (let row of multiplicationTable) {
+    console.log(row.join("\t"));
+}
+    </script>
+</body>
+</html>

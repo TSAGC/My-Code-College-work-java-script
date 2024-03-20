@@ -1,0 +1,15 @@
+The data type of variable c is a string.
+The data type of variable c is a number.
+It depends on the context of your program. Generally, using null is preferable
+The console will output "world" 
+The console will log "Hello world!" 
+The value of a will be whatever the user enters in the prompt dialog.
+The value of b output to the console will be 71. 
+The value of result will be 4. 
+The value of total is 16 and the value of total2 is 540.
+The console will log:
+true because both a and b are greater than 0.
+false because b is not equal to 4.
+true because at least one of the conditions (true or false) is true.
+true because b is equal to 10.
+false because neither a nor b is equal to 3 or 7.

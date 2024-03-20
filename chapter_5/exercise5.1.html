@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const maxValue = 5;
+const solution = Math.floor(Math.random() * maxValue) + 1;
+console.log("Solution:", solution);
+
+let isCorrect = false;
+while (!isCorrect) {
+    let guess = prompt(`Enter a number between 1 and ${maxValue}:`);
+    guess = parseInt(guess);
+
+    if (guess === solution) {
+        isCorrect = true;
+        alert("Congratulations! You guessed the correct number.");
+    } else if (guess < solution) {
+        alert("Too low. Try again.");
+    } else {
+        alert("Too high. Try again.");
+    }
+}
+</script>
+</body>
+</html>

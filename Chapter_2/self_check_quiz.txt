@@ -1,0 +1,73 @@
+// What data type is the following variable?
+const c = "5";
+// : it is a string
+//=============================================================================================================================
+
+// 2. What data type is the following variable?
+const c = 91;
+// : it is a number
+//=============================================================================================================================
+
+// 3. Which one is generally better, line 1 or line 2?
+let empty1 = undefined; //line 1
+let empty2 = null; //line 2
+// : line 2 is better becuse line 2 is a null value
+//=============================================================================================================================
+
+// 4. What is the console output for the following?
+let a = "Hello";
+a = "world";
+console.log(a);
+// : the output will be [world]
+//=============================================================================================================================
+
+// 5. What will be logged to the console?
+let a = "world";
+let b = `Hello ${a}!`;
+console.log(b);
+// : hello world will be loged becuse the varuble a is behing added to the string
+//=============================================================================================================================
+
+// 6. What is the value of a?
+let a = "Hello";
+a = prompt("world");
+console.log(a);
+// : a will gaint the value that was entered by the user
+//=============================================================================================================================
+
+// 7. What is the value of b output to the console?
+let a = 5;
+let b = 70;
+let c = "5";
+b++;
+console.log(b);
+// : b will be 71 becuse it was incremented
+//=============================================================================================================================
+
+// 8. What is the value of result?
+let result = 3 + 4 * 2 / 8;
+// : will be 4
+//=============================================================================================================================
+
+// 9. What is the value of total and total2?
+let firstNum = 5;
+let secondNum = 10;
+firstNum++;
+secondNum--;
+let total = ++firstNum + secondNum;
+console.log(total);
+let total2 = 500 + 100 / 5 + total--;
+console.log(total2);
+// : 16 and 536
+//=============================================================================================================================
+
+// 10. What is logged to the console here?
+const a = 5;
+const b = 10;
+console.log(a > 0 && b > 0);
+console.log(a == 5 && b == 4);
+console.log(true ||false);
+console.log(a == 3 || b == 10);
+console.log(a == 3 || b == 7);
+// : true and false will be displayed depending if the values matcg the criterea 
+//=============================================================================================================================

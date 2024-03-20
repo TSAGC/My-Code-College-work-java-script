@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cookie Builder</title>
+</head>
+
+<body>
+    <script>
+        function setCookie(cookieName, cookieValue, days) {
+            if (days <= 0) {
+                console.error("Invalid number of days");
+                return;
+            }
+
+            let expirationDate = new Date();
+            expirationDate.setTime(expirationDate.getTime() + (days * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + expirationDate.toUTCString();
+            document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cookieName) {
+            let cookieValue = false;
+            let cookies = document.cookie.split(';');
+            cookies.forEach(cookie => {
+                let parts = cookie.split('=');
+                let name = parts[0].trim();
+                if (name === cookieName) {
+                    cookieValue = parts[1];
+                }
+            });
+            return cookieValue;
+        }
+
+        function deleteCookie(cookieName) {
+            document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+
+        setCookie("testCookie1", "value1", 7);
+        setCookie("testCookie2", "value2", 7);
+
+        console.log("testCookie1 value:", getCookie("testCookie1"));
+        console.log("testCookie2 value:", getCookie("testCookie2"));
+
+        deleteCookie("testCookie1");
+        console.log("testCookie1 value after deletion:", getCookie("testCookie1"));
+    </script>
+</body>
+
+</html>

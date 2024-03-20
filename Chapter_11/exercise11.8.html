@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Key Press Event</title>
+</head>
+
+<body>
+    <input type="text" id="input1" placeholder="Type here...">
+    <input type="text" id="input2" placeholder="Type here...">
+    <div class="output"></div>
+
+    <script>
+        const output = document.querySelector('.output');
+        const inputs = document.querySelectorAll('input');
+
+        inputs.forEach(input => {
+            input.addEventListener('keydown', (event) => {
+                if (event.key >= '0' && event.key <= '9') {
+                    output.textContent += event.key;
+                }
+            });
+
+            input.addEventListener('keyup', (event) => {
+                console.log('Key up:', event.key);
+            });
+
+            input.addEventListener('paste', () => {
+                console.log('Pasted');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let myObject = {
+    name: "John",
+    age: 30,
+    city: "New York"
+};
+
+console.log("Object:");
+for (let key in myObject) {
+    console.log(key + ": " + myObject[key]);
+}
+
+let myArray = ["John", 30, "New York"];
+
+console.log("\nArray:");
+for (let i = 0; i < myArray.length; i++) {
+    console.log(myArray[i]);
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Clicker</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s;
+    padding: 20px;
+    text-align: center;
+  }
+  .colorDiv {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="colorDiv" id="red">Red</div>
+<div class="colorDiv" id="blue">Blue</div>
+<div class="colorDiv" id="green">Green</div>
+<div class="colorDiv" id="yellow">Yellow</div>
+<script>
+  document.querySelectorAll('.colorDiv').forEach(div => {
+    div.addEventListener('click', () => {
+      document.body.style.backgroundColor = div.id;
+    });
+  });
+</script>
+</body>
+</html>

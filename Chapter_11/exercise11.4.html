@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events Example</title>
+    <style>
+        .myElement {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 200px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="myElement">Hello World</div>
+    <script>
+        const element = document.querySelector('.myElement');
+        element.addEventListener('mousedown', (event) => {
+            changeColor('green', event);
+        });
+        element.addEventListener('mouseover', (event) => {
+            changeColor('red', event);
+        });
+        element.addEventListener('mouseout', (event) => {
+            changeColor('yellow', event);
+        });
+        element.addEventListener('mouseup', (event) => {
+            changeColor('blue', event);
+        });
+
+        function changeColor(color, event) {
+            element.style.backgroundColor = color;
+            console.log(`Color changed to ${color}`);
+            console.log(`Event type: ${event.type}`);
+        }
+    </script>
+</body>
+
+</html>

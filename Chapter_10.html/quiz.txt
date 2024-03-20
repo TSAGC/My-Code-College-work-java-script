@@ -1,0 +1,12 @@
+1: "Hello
+World"
+
+2: Hello World
+
+3: three
+
+4: one
+   two
+   three
+
+5 : btn.removeEventListener("click", myFun);

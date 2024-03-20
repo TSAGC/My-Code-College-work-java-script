@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Move Square</title>
+    <style>
+        #square {
+            width: 50px;
+            height: 50px;
+            background-color: purple;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+
+        #container {
+            width: 800px;
+            height: 400px;
+            position: relative;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="square"></div>
+    </div>
+
+    <script>
+        const square = document.getElementById('square');
+        const container = document.getElementById('container');
+
+        let speed = 1;
+        let direction = 1; 
+        let position = 0;
+        let intervalCounter = 30;
+
+        square.addEventListener('click', () => {
+    let interval = setInterval(() => {
+        if (position > 50) {
+            direction = -1; // Change direction to move left
+        } else if (position <= 500) {
+            direction = 1; // Change direction to move right
+        }
+
+        position += speed * direction;
+        square.style.left = position + 'px';
+
+        console.log('Position:', position);
+    }, 1000 / 60); // 60 frames per second
+});
+    </script>
+</body>
+
+</html>

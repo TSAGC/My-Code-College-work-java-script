@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let dynamicNumber = 5;
+        let userNumber = parseInt(prompt("Enter a number:"));
+
+        if (userNumber > dynamicNumber) {
+            console.log("Your number is greater than the dynamic number.");
+        } else if (userNumber === dynamicNumber) {
+            console.log("Your number is equal to the dynamic number.");
+        } else {
+            console.log("Your number is less than the dynamic number.");
+        }
+
+    </script>
+    <script>
+        let userName = prompt("Enter a name:");
+        let message;
+
+        switch (userName) {
+            case "Alice":
+            case "Bob":
+            case "Charlie":
+                message = "You are a friend.";
+                break;
+            default:
+                message = "I don't know you.";
+        }
+
+        console.log(message);
+
+    </script>
+    <script>
+        let choices = ["Rock", "Paper", "Scissors"];
+        let playerChoice = Math.floor(Math.random() * 3);
+        let computerChoice = Math.floor(Math.random() * 3);
+
+        console.log("Player's choice:", choices[playerChoice]);
+        console.log("Computer's choice:", choices[computerChoice]);
+
+        if (playerChoice === computerChoice) {
+            console.log("It's a tie!");
+        } else if (
+            (playerChoice === 0 && computerChoice === 2) ||
+            (playerChoice === 1 && computerChoice === 0) ||
+            (playerChoice === 2 && computerChoice === 1)
+        ) {
+            console.log("Player wins!");
+        } else {
+            console.log("Computer wins!");
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+
+<body>
+    <div id="output">Complete JavaScript Course</div>
+    <input id="sText" type="text">
+    <input id="rText" type="text">
+    <button onclick="lookup()">Replace</button>
+    <script>
+        function lookup() {
+            let output = document.getElementById('output');
+            let searchText = document.getElementById('sText').value;
+            let replaceText = document.getElementById('rText').value;
+
+            let s = output.textContent;
+            let rt = new RegExp(searchText, 'g');
+
+            if (s.match(rt)) {
+                s = s.replace(rt, replaceText);
+                output.textContent = s;
+            }
+        }
+    </script>
+</body>
+
+</html>

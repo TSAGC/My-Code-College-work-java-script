@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let grid = [];
+const numCells = 64;
+let counter = 0;
+let row = [];
+
+for (let i = 0; i <= numCells; i++) {
+    if (i % 8 === 0) {
+        if (row !== undefined) {
+            grid.push(row);
+        }
+        row = [];
+    }
+    counter++;
+    row.push(counter);
+    // if (counter === 8) {
+    //     grid.push(row);
+    // }
+}
+
+
+console.table(grid);
+    </script>
+</body>
+</html>

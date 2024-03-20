@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function capitalizeWords(sentence) {
+    let lowercaseSentence = sentence.toLowerCase();
+    let capitalizedWords = [];
+    let words = lowercaseSentence.split(' ');
+
+    words.forEach(word => {
+        let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+        capitalizedWords.push(capitalizedWord);
+    });
+
+    let capitalizedSentence = capitalizedWords.join(' ');
+    return capitalizedSentence;
+}
+
+
+let sentence = "thIs will be capiTalized for each word";
+let capitalizedSentence = capitalizeWords(sentence);
+console.log(capitalizedSentence);
+    </script>
+</body>
+
+</html>

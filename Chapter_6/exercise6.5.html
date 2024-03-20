@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let value = 1000;
+
+(function() {
+    let value = "New value inside IIFE";
+    console.log("Inside IIFE:", value);
+})();
+
+let result = (function() {
+    let value = "New value inside IIFE expression";
+    return value;
+})();
+console.log("Result from IIFE expression:", result);
+
+(function(param) {
+    let value = param;
+    console.log("Value from anonymous function:", value);
+})("New value from anonymous function");  
+    </script>
+</body>
+</html>

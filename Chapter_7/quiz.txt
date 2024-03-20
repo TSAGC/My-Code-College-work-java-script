@@ -1,0 +1,14 @@
+question 1 : class ;
+
+question 2 :  class Person {
+            constructor(firstname, lastname) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+        }
+
+question 3 : inheritance
+
+question 4 : t,t,t,t,t
+
+question 5 : B 

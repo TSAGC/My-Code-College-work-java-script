@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>Simple To-Do List</h1>
+    <input id="taskInput" type="text" placeholder="Enter task">
+    <button id="addTaskBtn">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addTaskBtn = document.getElementById('addTaskBtn');
+        const taskList = document.getElementById('taskList');
+
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        function saveTasks() {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        function renderTasks() {
+            taskList.innerHTML = '';
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.addEventListener('change', () => {
+                    if (checkbox.checked) {
+                        tasks.splice(index, 1);
+                        saveTasks();
+                        renderTasks();
+                    }
+                });
+                const label = document.createElement('label');
+                label.textContent = task;
+                li.appendChild(checkbox);
+                li.appendChild(label);
+                taskList.appendChild(li);
+            });
+        }
+
+        addTaskBtn.addEventListener('click', () => {
+            const task = taskInput.value.trim();
+            if (task) {
+                tasks.push(task);
+                saveTasks();
+                renderTasks();
+                taskInput.value = '';
+            }
+        });
+
+        renderTasks();
+    </script>
+</body>
+</html>

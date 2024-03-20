@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let prize = prompt("Select a number between 0 and 10 to determine your prize:");
+
+prize = parseInt(prize);
+
+let message = "My Selection: ";
+
+switch (prize) {
+    case 0:
+        message += "A hug!";
+        break;
+    case 1:
+        message += "A high five!";
+        break;
+    case 2:
+        message += "A pat on the back!";
+        break;
+    case 3:
+        message += "A thumbs up!";
+        break;
+    case 4:
+        message += "A handshake!";
+        break;
+    case 5:
+        message += "A round of applause!";
+        break;
+    case 6:
+        message += "A gold star!";
+        break;
+    case 7:
+        message += "A trophy!";
+        break;
+    case 8:
+        message += "A certificate!";
+        break;
+    case 9:
+        message += "A medal!";
+        break;
+    case 10:
+        message += "A grand prize!";
+        break;
+    default:
+        message = "Invalid selection. Please select a number between 0 and 10.";
+}
+
+console.log(message);
+
+    </script>
+</body>
+</html>

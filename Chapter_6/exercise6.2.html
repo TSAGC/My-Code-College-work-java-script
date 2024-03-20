@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function desctibe() {
+            let name = prompt("please enter your name");
+            let descriptiveWords = [
+                "awesome",
+                "amazing",
+                "fantastic",
+                "incredible",
+                "marvelous",
+                "outstanding",
+                "spectacular",
+                "terrific",
+                "wonderful"
+            ];
+
+            randomIndex = Math.floor(Math.random() * descriptiveWords.length - 1);
+            console.log(`Wow, ${name} your name is ${descriptiveWords[randomIndex]}`)
+        }
+    </script>
+</body>
+
+</html>

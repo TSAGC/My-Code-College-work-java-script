@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- how to store data on sessio n stoirage -->
+
+    <fieldset>
+        <p id="name">
+            <input type="text" name="" id="name_input">
+        </p>
+        <p id="surname">
+            <input type="text" name="" id="surname_input">
+        </p>
+
+        <button onclick="store()">
+            Press to store 
+        </button>
+        <button onclick="retrieve()">
+            Retrieve storage 
+        </button>
+    </fieldset>
+
+    <script>
+        function store() {
+            var name = document.getElementById("name_input").value;
+            var surname = document.getElementById("surname_input").value;
+            window.sessionStorage.setItem("name", name);
+            window.sessionStorage.setItem("surname", surname);
+
+            console.log(sessionStorage);
+        }
+
+        function retrieve() {
+            var name = window.sessionStorage.getItem("name");
+            var surname = window.sessionStorage.getItem("surname");
+            console.log("Name:", name);
+            console.log("Surname:", surname);
+        }
+    </script>
+</body>
+</html>

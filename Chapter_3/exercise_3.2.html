@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+    let list = [] ;
+    list.push("milk");
+    list.push("bread");
+    list.push("apples");
+    list[1] = "bananas" ; 
+    let removedItem = list.pop(); 
+    console.log("Removed item:", removedItem); 
+
+    list.sort(); 
+
+    let indexOfMilk = list.indexOf("milk"); 
+    console.log("Index of 'milk':", indexOfMilk); 
+
+    list.splice(2, 0, "carrots", "lettuce"); 
+
+    let newlist = ["Juice", "Pop"] ; 
+
+    list = list.concat(newlist); 
+
+    console.log(list.lastIndexOf("Pop")); 
+    console.log("Your final list:", list); 
+</script> 
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function scrambleWord(word) {
+        let originalWord = word;
+        let scrambledWord = '';
+
+    for (let i = 0; i < originalWord.length; i++) {
+        let randomIndex = Math.floor(Math.random() * originalWord.length);
+        let randomLetter = originalWord.charAt(randomIndex);
+
+        scrambledWord += randomLetter;
+
+        originalWord = originalWord.substring(0, randomIndex) + originalWord.substring(randomIndex + 1);
+
+        console.log(`Original: ${word}, Scrambled: ${scrambledWord}, Remaining: ${originalWord}`);
+    }
+
+    return scrambledWord;
+
+}
+
+let word = 'javascript';
+let result = scrambleWord(word);
+console.log(`Final result: ${result}`); 
+    </script>
+
+
+
+
+    <script>
+const endDate = new Date('2024-12-31T23:59:59');
+
+function countdown() {
+    const now = new Date();
+    const totalMilliseconds = endDate - now;
+
+    const days = Math.floor(totalMilliseconds / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((totalMilliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((totalMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((totalMilliseconds % (1000 * 60)) / 1000);
+
+    return {
+        days,
+        hours,
+        minutes,
+        seconds
+    };
+}
+
+function update() {
+    const temp = countdown();
+    let output = '';
+
+    for (const [key, value] of Object.entries(temp)) {
+        output += `${key}: ${value} `;
+    }
+
+    console.log(output);
+}
+
+setInterval(update, 1000); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>JavaScript Course</title>
+</head>
+
+<body>
+    <div class="output"></div>
+    <input type="text" id="emailInput" placeholder="Enter Email">
+    <button id="checkButton">Check</button>
+    <script>
+        const output = document.querySelector(".output");
+        const emailInput = document.getElementById("emailInput");
+        const checkButton = document.getElementById("checkButton");
+
+        checkButton.addEventListener("click", function () {
+            const email = emailInput.value;
+            const regex = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
+
+            if (!regex.test(email)) {
+                output.textContent = "Invalid Email";
+                output.style.color = "red";
+            } else {
+                output.textContent = "Valid Email";
+                output.style.color = "green";
+            }
+        });
+    </script>
+</body>
+
+</html>

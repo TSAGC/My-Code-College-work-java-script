@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let myArray = [];
+
+for (let i = 0; i < 10; i++) {
+    myArray.push(i);
+}
+
+console.log("Array:", myArray);
+
+console.log("Using for loop:");
+for (let i = 0; i < myArray.length; i++) {
+    console.log(myArray[i]);
+}
+
+console.log("Using for...of loop:");
+for (let value of myArray) {
+    console.log(value);
+}
+    </script>
+</body>
+</html>
