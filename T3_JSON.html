@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <form action="example.html"></form>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const data = new FormData(event.target);
+
+            const value = data.get('email');
+
+            console.log({ value });
+        }
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', handleSubmit);
+    </script>
+
+    <form>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const data = new FormData(event.target);
+
+            // Do a bit of work to convert the entries to a plain JS object
+            const value = Object.fromEntries(data.entries());
+
+            console.log({ value });
+        }
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', handleSubmit);
+    </script>
+
+    <form>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+
+        <p>
+            <input type="checkbox" name="topics" id="javascript" value="javascript" />
+            <label for="javascript">JavaScript</label>
+
+            <input type="checkbox" name="topics" id="html" value="html" />
+            <label for="html">HTML</label>
+
+            <input type="checkbox" name="topics" id="css" value="css" />
+            <label for="css">CSS</label>
+        </p>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const data = new FormData(event.target);
+
+            const value = Object.fromEntries(data.entries());
+
+            value.topics = data.getAll("topics");
+
+            console.log({ value });
+        }
+
+        const form = document.querySelector("form");
+        form.addEventListener("submit", handleSubmit);
+    </script>
+
+    <script>
+        // Find our form in the DOM using its class name.
+        const form = document.getElementByClassName('.contact-form')[0];
+
+        // Get the form data with our (yet to be defined) function.
+        const data = getFormDataAsJSON(form);
+
+        // Do something with the email address.
+        doSomething(data.email);
+    </script>
+
+    <script>
+        /**
+ * A handler function to prevent default submission and run our custom script.
+ * @param  {Event} event  the submit event triggered by the user
+ * @return {void}
+ */
+        const handleFormSubmit = (event) => {
+            // Stop the form from submitting since we’re handling that with AJAX.
+            event.preventDefault();
+
+            // TODO: Call our function to get the form data.
+            const data = {};
+
+            // Demo only: print the form data onscreen as a formatted JSON object.
+            const dataContainer = document.getElementsByClassName('results__display')[0];
+
+            // Use `JSON.stringify()` to make the output valid, human-readable JSON.
+            dataContainer.textContent = JSON.stringify(data, null, '  ');
+
+            // ...this is where we’d actually do something with the form data...
+        };
+    </script>
+
+    <script>
+        const handleFormSubmit = (event) => {
+            /* omitted for brevity */
+        };
+
+        /*
+         * This is where things actually get started. We find the form element using
+         * its class name, then attach the `handleFormSubmit()` function to the
+         * `submit` event.
+         */
+        const form = document.getElementsByClassName('contact-form')[0];
+        form.addEventListener('submit', handleFormSubmit);  
+    </script> -->
+
+    <!-- <script>
+        /**
+ * Retrieves input data from a form and returns it as a JSON object.
+ * @param  {HTMLFormControlsCollection} elements  the form elements
+ * @return {Object}                               form data as an object literal
+ */
+        const formToJSON = (elements) =>
+            [].reduce.call(
+                elements,
+                (data, element) => {
+                    data[element.name] = element.value;
+                    return data;
+                },
+                {}
+            );
+
+        const handleFormSubmit = (event) => {
+            // Stop the form from submitting since we’re handling that with AJAX.
+            event.preventDefault();
+
+            // Call our function to get the form data.
+            const data = formToJSON(form.elements);
+
+            // Demo only: print the form data onscreen as a formatted JSON object.
+            const dataContainer = document.getElementsByClassName('results__display')[0];
+
+            // Use `JSON.stringify()` to make the output valid, human-readable JSON.
+            dataContainer.textContent = JSON.stringify(data, null, '  ');
+
+            // ...this is where we’d actually do something with the form data...
+        };
+
+        const form = document.getElementsByClassName('contact-form')[0];
+        form.addEventListener('submit', handleFormSubmit);
+    </script> -->
+
+    <!-- step 2  -->
+
+    <!-- <script>
+        const sales = [100.12, 19.49, 10, 42.18, 99.62];
+
+        function getTotalSales(previousTotal, currentSaleAmount) {
+            return previousTotal + currentSaleAmount;
+        }
+
+        sales.reduce(getTotalSales);
+        // result: 271.41
+    </script> -->
+
+    <!-- <script>
+        // This is the function that is called on each element of the array.
+        const reducerFunction = (data, element) => {
+            // Add the current field to the object.
+            data[element.name] = element.value;
+
+            // For the demo only: show each step in the reducer’s progress.
+            console.log(JSON.stringify(data));
+
+            return data;
+        };
+    </script> -->
+
+
+     <!-- <script>
+    //     const formToJSON_deconstructed = (elements) => {
+    //         // This is the function that is called on each element of the array.
+    //         const reducerFunction = (data, element) => {
+    //             // Add the current field to the object.
+    //             data[element.name] = element.value;
+
+    //             // For the demo only: show each step in the reducer’s progress.
+    //             console.log(JSON.stringify(data));
+
+    //             return data;
+    //         };
+
+    //         // This is used as the initial value of `data` in `reducerFunction()`.
+    //         const reducerInitialValue = {};
+
+    //         // To help visualize what happens, log the inital value.
+    //         console.log('Initial `data` value:', JSON.stringify(reducerInitialValue));
+
+    //         // Now we reduce by `call`-ing `Array.prototype.reduce()` on `elements`.
+    //         const formData = [].reduce.call(
+    //             elements,
+    //             reducerFunction,
+    //             reducerInitialValue
+    //         );
+
+    //         // The result is then returned for use elsewhere.
+    //         return formData;
+    //     };
+     </script> -->
+
+<!-- <script>
+    const isValidValue = (element) => {
+  return !['checkbox', 'radio'].includes(element.type) || element.checked;
+};
+</script> -->
+
+<!-- <script>
+    /**
+ * Checks if an input is a `select` with the `multiple` attribute.
+ * @param  {Element} element  the element to check
+ * @return {Boolean}          true if the element is a multiselect, false if not
+ */
+const isMultiSelect = (element) => element.options && element.multiple;
+</script> -->
+
+
+<!-- <script>
+    const formToJSON = (elements) =>
+  [].reduce.call(
+    elements,
+    (data, element) => {
+      // Make sure the element has the required properties and should be added.
+      if (isValidElement(element) && isValidValue(element)) {
+        /*
+         * Some fields allow for more than one value, so we need to check if this
+         * is one of those fields and, if so, store the values as an array.
+         */
+        if (isCheckbox(element)) {
+          data[element.name] = (data[element.name] || []).concat(element.value);
+        } else {
+          data[element.name] = element.value;
+        }
+      }
+
+      return data;
+    },
+    {}
+  );
+</script> -->
+    
+</body>
+
+</html>
