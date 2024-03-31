@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pac-Man Main Menu</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        background-image: radial-gradient(circle at 10% 20%, blue, black),
+                          radial-gradient(circle at 80% 70%, #b8d8ff, #5fbfff);
+    }
+    .menu {
+        text-align: center;
+    }
+    .menu h1 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    .menu button {
+        display: block;
+        width: 200px;
+        padding: 10px;
+        margin: 10px auto;
+        font-size: 1.2em;
+        background-color: #ffc107;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .menu button:hover {
+        transform: scale(1.1);
+    }
+    .menu #play {
+        font-size: 1.5em;
+    }
+</style>
+</head>
+<body>
+<div class="menu">
+    <h1>Pac-Man</h1>
+    <button id="play" onclick="window.location.href='pac-man.html'">Play</button>
+    <!-- <button onclick="window.location.href='Leaderboard.html'">Leaderboard</button> -->
+</div>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Leaderboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            background-image: radial-gradient(circle at 10% 20%, blue, black),
+                radial-gradient(circle at 80% 70%, #b8d8ff, #5fbfff);
+        }
+
+        .leaderboard {
+            text-align: center;
+        }
+
+        .leaderboard h1 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .leaderboard table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .leaderboard th,
+        .leaderboard td {
+            padding: 10px;
+            border-bottom: 1px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="leaderboard">
+        <h1>Leaderboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>unknown</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>unknown</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>unknown</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+
+        let currentpoints = JSON.parse(localStorage.getItem('currentscore')) || []
+        let arrayNames = JSON.parse(localStorage.getItem('names')) || [];
+        let arrayPoints = JSON.parse(localStorage.getItem('arrayPoints')) || [];
+
+        console.log(currentpoints);
+
+
+        arrayPoints.forEach(index => {
+            if (currentpoints > arrayPoints[index] && index <= 3) {
+                arrayPoints[index] = currentpoints;
+                let name = prompt('congartiolations you made it in the top 3 !. please enter your user name');
+                name = arrayNames[index];
+            } else { alert('sorry you did not make the top 3 your score is' + currentpoints) }
+            console.log('name : ' + arrayNames + 'points' + arrayPoints);
+        });
+    </script>
+</body>
+
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Leaderboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            background-image: radial-gradient(circle at 10% 20%, blue, black),
+                radial-gradient(circle at 80% 70%, #b8d8ff, #5fbfff);
+        }
+
+        .leaderboard {
+            text-align: center;
+        }
+
+        .leaderboard h1 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .leaderboard table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .leaderboard th,
+        .leaderboard td {
+            padding: 10px;
+            border-bottom: 1px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="leaderboard">
+        <h1>Leaderboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>unknown</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>unknown</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>unknown</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+
+        let currentpoints = JSON.parse(localStorage.getItem('currentscore')) || 0;
+        let arrayNames = JSON.parse(localStorage.getItem('names')) || [];
+        let arrayPoints = JSON.parse(localStorage.getItem('arrayPoints')) || [];
+
+        console.log(currentpoints);
+
+
+        let inserted = false;
+        for (let i = 0; i < arrayPoints.length; i++) {
+            if (currentpoints > arrayPoints[i]) {
+                let name = prompt('congratulations, you made it in the top 3! Please enter your username:');
+                arrayNames.splice(i, 0, name);
+                arrayPoints.splice(i, 0, currentpoints);
+                inserted = true;
+                break;
+            }
+        }
+
+        if (!inserted && arrayPoints.length < 3) {
+            let name = prompt('congratulations, you made it in the top 3! Please enter your username:');
+            arrayNames.push(name);
+            arrayPoints.push(currentpoints);
+        }
+
+        while (arrayPoints.length > 3) {
+            arrayNames.pop();
+            arrayPoints.pop();
+        }
+
+        console.log('names: ' + arrayNames + ' points: ' + arrayPoints);
+
+        let leaderboardTable = document.querySelector('.leaderboard table tbody');
+        leaderboardTable.innerHTML = '';
+        for (let i = 0; i < arrayPoints.length; i++) {
+            let row = `<tr><td>${i + 1}</td><td>${arrayNames[i] || 'unknown'}</td><td>${arrayPoints[i]}</td></tr>`;
+            leaderboardTable.innerHTML += row;
+        }
+
+        // Update local storage
+        localStorage.setItem('names', JSON.stringify(arrayNames));
+        localStorage.setItem('arrayPoints', JSON.stringify(arrayPoints));
+
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Leaderboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            background-image: radial-gradient(circle at 10% 20%, blue, black),
+                radial-gradient(circle at 80% 70%, #b8d8ff, #5fbfff);
+        }
+
+        .leaderboard {
+            text-align: center;
+        }
+
+        .leaderboard h1 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .leaderboard table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .leaderboard th,
+        .leaderboard td {
+            padding: 10px;
+            border-bottom: 1px solid #fff;
+        }
+
+        .leaderboard .new-button {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin: 20px auto;
+            font-size: 1.2em;
+            background-color: #ffc107;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .leaderboard .new-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="leaderboard">
+        <h1>Leaderboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>unknown</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>unknown</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>unknown</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="new-button" onclick="window.location.href='pac-man.html'">Play Again</button>
+        <button class="new-button" onclick="window.location.href='main_menu.html'">Exit</button>
+        <button class="new-button" onclick="clearLocalStorage()">Clear</button>
+    </div>
+
+    <script>
+        let currentpoints = JSON.parse(localStorage.getItem('currentscore')) || 0;
+        let arrayNames = JSON.parse(localStorage.getItem('names')) || [0, 0, 0];
+        let arrayPoints = JSON.parse(localStorage.getItem('arrayPoints')) || [];
+        setTimeout(function () {
+
+
+
+
+            console.log(currentpoints);
+
+
+            let inserted = false;
+            if (currentpoints > 0) {
+
+
+                for (let i = 0; i < arrayPoints.length; i++) {
+                    if (currentpoints > arrayPoints[i]) {
+                        let name = prompt('congratulations, you made it in the top 3! Please enter your username:');
+                        arrayNames.splice(i, 0, name);
+                        arrayPoints.splice(i, 0, currentpoints);
+                        inserted = true;
+                        break;
+                    }
+                }
+
+                // if (!inserted && arrayPoints.length < 3) {
+                //     let name = prompt('congratulations, you made it in the top 3! Please enter your username:');
+                //     arrayNames.push(name);
+                //     arrayPoints.push(currentpoints);
+                // }
+
+                while (arrayPoints.length > 3) {
+                    arrayNames.pop();
+                    arrayPoints.pop();
+                }
+
+                if (!inserted) {
+                    alert('sorry you did not make the top 3 ');
+                }
+            }
+
+            console.log('names: ' + arrayNames + ' points: ' + arrayPoints);
+
+
+
+            localStorage.setItem('names', JSON.stringify(arrayNames));
+            localStorage.setItem('arrayPoints', JSON.stringify(arrayPoints));
+
+
+            let leaderboardTable = document.querySelector('.leaderboard table tbody');
+            leaderboardTable.innerHTML = '';
+            for (let i = 0; i < arrayPoints.length; i++) {
+                let row = `<tr><td>${i + 1}</td><td>${arrayNames[i] || 'unknown'}</td><td>${arrayPoints[i]}</td></tr>`;
+                leaderboardTable.innerHTML += row;
+            }
+
+        }, 500);
+
+        console.log(arrayPoints)
+
+        function clearLocalStorage() {
+            localStorage.clear();
+        }
+
+    </script>
+</body>
+</html>
