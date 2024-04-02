@@ -290,7 +290,7 @@
         <h1>Leaderboard</h1>
         <table>
             <thead>
-                <tr>
+               <!-- <tr>
                     <th>Rank</th>
                     <th>Name</th>
                     <th>Score</th>
@@ -311,7 +311,7 @@
                     <td>3</td>
                     <td>unknown</td>
                     <td>0</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <button class="new-button" onclick="window.location.href='pac-man.html'">Play Again</button>
@@ -321,8 +321,8 @@
 
     <script>
         let currentpoints = JSON.parse(localStorage.getItem('currentscore')) || 0;
-        let arrayNames = JSON.parse(localStorage.getItem('names')) || [0, 0, 0];
-        let arrayPoints = JSON.parse(localStorage.getItem('arrayPoints')) || [];
+        let arrayNames = JSON.parse(localStorage.getItem('names')) || ['no one yet','no one yet','no one yet'];
+        let arrayPoints = JSON.parse(localStorage.getItem('arrayPoints')) || [0,0,0];
         setTimeout(function () {
 
 
